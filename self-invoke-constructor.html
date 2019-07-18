@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>이벤트 버블링과 캠처링의 비교</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        (function () {
+            function Employee(name, manMonth) {
+                if(!(this instanceof Employee)) {
+                    return new Employee(name, manMonth);
+                }
+
+                this.name = name;
+                this.manMonth = manMonth;
+            }
+
+            var unikys = Employee("Unikys", 1),
+                world = new Employee("World", 2);
+
+            console.log(unikys);
+            console.log(world);    
+        }());
+    </script>
+</body>
+
+</html>                                                                                                                                                                                                                                                         

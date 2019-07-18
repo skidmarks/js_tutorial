@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>글로벌 스코프에서 var 키워드로 글로벌 변수 정의</title>
+</head>
+
+<body>
+
+    <p>글로벌 스코프에서 var 키워드로 글로벌 변수 정의</p>
+    <script>
+        console.log("1: " + varExists + " , " + window.hasOwnProperty("varExists"));
+        var varExists = "Define a global variable with var keyword";
+        console.log("2: " + varExists);
+    </script>
+</body>
+
+</html>

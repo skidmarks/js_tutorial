@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>변수형에 따른 처리 분리</title>
+</head>
+
+<body>
+
+    <p>변수형에 따른 처리 분기</p>
+
+    <script>
+        if (typeof myVariable === "function") {
+            alert("Variable is function");
+            myVariable.call(this);
+        } else if (typeof myVariable === "String") {
+            alert("Variable is string: " + myVariable);
+        }
+
+        function Person(name, blog) {
+            this.name = name;
+            this.blog = blog;
+        }
+
+        var unikys = new Person("unikys", "http://unikys.tistory.com");
+
+        console.log(unikys instanceof Person);
+        console.log(unikys instanceof Object);
+        console.log(typeof unikys === "object");
+
+        var aa = typeof unikys;
+        console.log(aa)
+        console.log(typeof aa);
+
+
+        String.prototype.trim = function () {
+            return this.replace(/^\s+|\s+$/g, "");
+        };
+
+        console.log("     unikys    ".trim() == "unikys");
+    </script>
+</body>
+
+</html>

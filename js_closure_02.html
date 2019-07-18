@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>closure 함수의 return 값으로 object를 반환하는 경우.</title>
+	</head>
+	<body>
+		
+        <p>함수의 리턴 값으로 함수가 아닌 object를 반환하는 경우.</p>
+
+		<script>
+            function outer() {
+                var count = 0;
+                return {
+                    increase: function() {
+                        return ++count;
+                    },
+                    decrease: function() {
+                        return --count;
+                    }
+                };
+            }    
+            
+            var counter = outer();
+            console.log(counter.increase());
+            console.log(counter.increase());
+            console.log(counter.decrease());
+            
+            var counter2 = outer();
+            console.log(counter2.increase());
+		</script>
+	</body>	
+</html>

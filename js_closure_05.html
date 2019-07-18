@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>closure 함수의 return 값으로 object를 반환하는 경우.</title>
+	</head>
+	<body> 
+		
+        <button id="btnToggle">Toggle Pending</button>
+        <div id="divPending">
+            Pending
+        </div>    
+        
+		<script>
+            (function() {
+                var appendDiv = document.getElementById('appendDiv');
+                document.getElementById('wrapper').addEventListener('click', append);
+                
+                function append(e) {
+                    var target = e.target || e.srcElement || event.srcElement;
+                    var callbackFunction = callback[target.getAttribute(data-cb)];
+                    appendDiv.appendChild(callbackFunction());
+                }
+                
+                
+            }());
+
+            
+		</script>
+	</body>	
+</html>

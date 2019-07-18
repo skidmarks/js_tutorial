@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>클로저를 활용하여 로컬 변수를 활용하는 예</title>
+</head>
+
+<body>
+
+    <p>클로저를 활용하여 로컬 변수를 활용하는 예</p>
+
+    <div id="wrapper" style="padding:50px 0;">TEST</div>    
+    <button data-cb="1">1</button>
+    <button data-cb="2">2</button>
+    <button data-cb="delete">delete</button>
+    <script>
+        (function() {
+            var appendDiv = document.getElementById("appendDiv"),
+                callback = {
+                    "1": (function () {
+                        var div = document.createElement("div");
+                        div.innerHTML = "#1";
+                        return function () {
+                            return div.cloneNode(true);
+                        };
+                    }()),                
+                    "2": (function () {
+                        var img = document.createElement("img");
+                        img.src = "http://cfile24.uf.tistory.com/image/203E5A424F471E3025FA01";
+                        return function () {
+                            return img.cloneNode(true);
+                        };
+                    }()),
+                    "delete": function (){
+                        appendDiv.innerHTML = "";
+                    }
+                };
+
+            function append(e) {
+                var target = e.target || e.srcElement || event.srcElement,
+                    callbackFunction = callback[target.getAttribute("data-cb")];
+                appendDiv.appendChild(callbackFunction());
+            }
+
+            document.getElementById("wrapper").addEventListener("click", append);
+        }());
+    </script>
+</body>
+
+</html>

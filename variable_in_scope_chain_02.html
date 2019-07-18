@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>상위 스코프 체인의 변수를 사용하는 일반적인 예</title>
+</head>
+
+<body>
+
+    <p>상위 스코프 체인의 변수를 사용하는 일반적인 예</p>
+
+    <p>하나의 상위 스코프를 탐색할 때 마다 GetIdentifierReference()와 HashBinding() 함수를 재귀로 호출하는 구성을 최적화하려면</p>    
+    <div id="divMouseover">Mouse over Highlight</div>
+    <div id="divFloatingContent">Floating Content</div>
+
+    <script>
+        (function () {
+            var divMouseover = document.getElementById("divMouseover"),
+                divFloatingContent = document.getElementById("divFloatingContent");
+
+            divMouseover.onmouseover = function () {
+                var xhr = new XMLHttpRequest();
+                    divMouseoverStyle = divMouseover.style;
+                divMouseoverStyle.backgroundColor ="#FF0000";
+                divMouseoverStyle.color = "white";
+                divMouseoverStyle.fontSize = "12px";
+                xhr.open("GET", "http://myserver.com/floating_contents");
+                xhr.onload = function () {
+                    var localDivFloatingContent = divFloatingContent;
+                    localDivFloatingContent.innerHTML = xhr.responseText;
+                    localDivFloatingContent.style.display = "block";
+                };
+                xhr.send();
+            };
+            
+            divMouseover.onmouseout = function () {
+                var divMouseoverStyle = divMouseover.style;
+                divMouseoverStyle.backgroundColor = "#FFFFFF";
+                divMouseoverStyle.color = "black";
+                divMouseoverStyle.fontSize = "10px";
+                divFloatingContent.style.display = "none";        
+            };
+
+
+        }());
+    </script>
+</body>
+
+</html>

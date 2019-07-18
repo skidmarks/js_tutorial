@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Accordion</h2>
+
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <p>11Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.</p>
+    </div>
+
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+        <p>22Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.</p>
+    </div>
+
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+        <p>33Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat.</p>
+    </div>
+
+    <p>Select a display type in the list below to change <span id="mySpan" style="color:blue;">this span element's</span>
+        display type.</p>
+
+    <select id="selectDisplay" size="3">
+        <option>block</option>
+        <option>inline</option>
+        <option>none</option>
+    </select>
+
+
+
+    <script>
+        // var acc = document.getElementsByClassName("accordion");
+        // var i;
+
+        // for (i = 0; i < acc.length; i++) {
+        //     acc[i].addEventListener("click", function () {
+        //         this.classList.toggle("active");
+        //         var panel = this.nextElementSibling;
+        //         if (panel.style.display === "block") {
+        //             panel.style.display = "none";
+        //         } else {
+        //             panel.style.display = "block";
+        //         }
+        //     });
+        // }
+
+        (function () {
+            console.log("START-----");
+            // 변수 선언
+            var buttonAccordion, i, accLength;
+
+            // 변수 할당
+            buttonAccordion = document.getElementsByClassName("accordion");
+            accLength = buttonAccordion.length;
+
+            console.log(accLength);
+            // 이벤트 설정
+            for(i = 0; i < accLength; i++){
+                buttonAccordion.item(i).addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    var panelStyle = panel.style;
+                    if (panelStyle.display === "block") {
+                        panelStyle.display = "none";
+                    } else {
+                        panelStyle.display = "block";
+                    }
+                });
+            };
+
+
+            // display selection
+            var selectorDisplay, whichSelected, sel, elemDisplay;
+
+            selectorDisplay = document.getElementById("selectDisplay");
+            elemDisplay = document.getElementById("mySpan");
+
+            selectorDisplay.onchange = function () {
+                var whichSelected, sel;
+                whichSelected = selectorDisplay.selectedIndex;
+                sel = selectorDisplay.options[whichSelected].text;
+                elemDisplay.style.display = sel;
+            }
+        }());         
+
+    </script>
+
+</body>
+
+</html>

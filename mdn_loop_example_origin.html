@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>MDN loop example</title>
+    <style>
+        p{padding:20px;border: 2px dotted #000;color:#fff;}
+
+        .list-wrapper thead th .chkbox{background-color:#5e5e5e;border-color:#434343;vertical-align:text-bottom;}
+    </style>
+</head>
+
+<body>
+    <label for="search">Search by contact name: </label>
+    <input type="text" id="search" />
+    <button>Search</button>
+
+    <p></p>
+    <script>
+        (function () {
+            const contacts = ['Chris:2232322', 'Sarah:3453456', 'Bill:7654322', 'Mary:9998769', 'Dianne:9384975'];
+            const para = document.querySelector('p');
+            const input = document.querySelector('input');
+            const btn = document.querySelector('button');
+
+            // input.keyup()
+
+            function searchContactName () {
+                let searchName , i, cLength;
+                searchName = input.value.toLowerCase();
+                cLength = contacts.length;
+                
+                input.value = ''; // empting the text input
+                input.focus(); // focusing again
+                
+                for (i = 0; i < cLength; i++) {
+                    let splitContact;
+                    console.log(splitContact); // undefined;
+                    splitContact = contacts[i].split(':');
+                    console.log(splitContact); // []
+                    if (splitContact[0].toLowerCase() === searchName) {
+                        para.textContent = splitContact[0] + '\'s number is ' + splitContact[1] + '.';
+                        para.style.backgroundColor = '#' + splitContact[1].substr(0,6);
+                        break;
+                    } else {
+                        para.textContent = 'Contact not found.';
+                        para.style.backgroundColor = "#787878";
+                    }
+                } 
+            }
+
+
+            btn.addEventListener('click', searchContactName, true);
+            input.addEventListener('keyup', function (e) {
+                if(window.event.keyCode == 13) {
+                    searchContactName();
+                }
+            }, true);
+        }());
+    </script>
+</body>
+
+</html>

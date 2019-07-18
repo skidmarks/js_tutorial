@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>window 객체를 재정의하는 예제</title>
+</head>
+
+<body>
+
+    <p>window 객체를 재정의하는 예제</p>
+    <script>
+        (function() {
+            var window = {
+                url:"http://unikys.tistory.com",
+                popup: function() {
+                    window.open("http://unikys.tistory.com");
+                },
+                alert: function() {
+                   alert("I'm not the true alert!"); 
+                },
+                open: function() {
+                    alert("I know where you are going...." + window.url);
+                }    
+            };
+            
+            window.alert();
+            window.popup();
+        }());
+    </script>
+</body>
+
+</html>

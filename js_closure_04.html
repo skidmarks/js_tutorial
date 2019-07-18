@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>closure 함수의 return 값으로 object를 반환하는 경우.</title>
+	</head>
+	<body> 
+		
+        <button id="btnToggle">Toggle Pending</button>
+        <div id="divPending">
+            Pending
+        </div>    
+        
+		<script>
+            (function() {
+                var pendingInterval = false,
+                    div = document.getElementById('divPending');
+                    btn = document.getElementById('btnToggle');
+                
+                function startPending() {
+                    if(div.innerHTML.length > 13) {
+                        div.innerHTML = "Pending";
+                    }    
+                    div.innerHTML += '.';
+                };
+                btn.addEventListener("click", function() {
+                    if(!pendingInterval){
+                        pendingInterval = setInterval(startPending, 500);
+                        // setInterval return값은 0이 아닌 정수이고, 0이 아닌 정수의 boolean판단은 true 이다. 
+//                        pendingInterval = 0;
+                    }else{
+                        clearInterval(pendingInterval);
+                        peddingInterval = false;
+                    }
+                });
+            }());
+		</script>
+	</body>	
+</html>

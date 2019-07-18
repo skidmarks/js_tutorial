@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<title>closure 함수의 return 값으로 object를 반환하는 경우.</title>
+	</head>
+	<body> 
+		
+        <p>static 변수를 만들기.</p>
+
+		<script>
+            var countFactory = (function(){  // global scope 피하기
+                var staticCount = 0;
+                return function() {
+                    var localCount = 0;
+                    return {
+                        increase: function() {
+                            return {
+                                static: ++staticCount,
+                                local: ++localCount
+                            };
+                        },
+                        decrease: function() {
+                            return {
+                                static: --staticCount,
+                                local: --localCount
+                            };
+                        }
+                    };
+                };
+            }());
+            
+            var counter = countFactory(), counter2 = countFactory();
+            
+            console.log(counter.increase());
+            console.log(counter.increase());
+            console.log(counter.decrease());
+            console.log(counter2.decrease());
+            console.log(counter2.increase());
+		</script>
+	</body>	
+</html>

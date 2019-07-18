@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{margin:0;padding:0;}
+        /* 버튼 */
+        .btn{display:inline-block;text-align:center;cursor:pointer;box-sizing:border-box;}
+        .btn_s{padding:0 10px;height:26px;font-size:13px;}
+        .btn_m{padding:0 20px;height:32px;font-size:14px;}
+        .btn_l{padding:0 33px;height:42px;font-size:15px;}
+
+        .btn_sel{padding-left:36px;border:1px solid #aaa;background:#fff url('../images/contents/bul_sel.png') no-repeat
+        14px center;}
+        .btn_sel:hover{border:2px solid #003aa4;background:#fff url('../images/contents/bul_sel_on.png') no-repeat 13px
+        center;text-indent:-1px;}
+
+        .btn_green{border:1px solid #527c00;color:#527c00;background-color:#fff;}
+        .btn_green:hover{border:1px solid #527c00;text-indent:0;box-shadow:inset 0 0 1px 1px #527c00}
+    </style>
+</head>
+
+<body>
+
+    <h2>함수를 호출하는 방법</h2>
+    <p>- 일반 함수로의 호출</p>
+    <p>- 멤버함수로의 호출</p>
+    <p>- call() 함수를 이용한 호출</p>
+    <p>- apply() 함수를 이용한 호출</p>
+
+    <input type="button" value="확인" class="btn btn_m btn_green" />
+    <input type="button" value="확인" class="btn btn_m btn_green" />
+</body>
+
+</html>
