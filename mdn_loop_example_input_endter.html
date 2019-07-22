@@ -57,6 +57,40 @@
                     searchContactName();
                 }
             }, true);
+
+            input.addEventListener('keyup', function () {
+                if(window.event.keyCode == 13) {
+                    searchContactName();
+                }
+            }, true);
+
+
+            var fruits = ["Apple", "Banana", "Orange", "Strawberry"];
+            var pop = fruits.pop();
+            console.log(pop);
+            console.log(fruits);
+
+//     function iOS() {
+
+//   var iDevices = [
+//     'iPad Simulator',
+//     'iPhone Simulator',
+//     'iPod Simulator',
+//     'iPad',
+//     'iPhone',
+//     'iPod'
+//   ];
+
+//   if (!!navigator.platform) {
+//     while (iDevices.length) {
+//       if (navigator.platform === iDevices.pop()){ return true; }
+//     }
+//   }
+
+//   return false;
+// }        
+
+            console.log(navigator);
         }());
     </script>
 </body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>MDN loop example</title>
+    <style>
+        p{padding:20px;border: 2px dotted #000;color:#fff;}
+
+        .list-wrapper thead th .chkbox{background-color:#5e5e5e;border-color:#434343;vertical-align:text-bottom;}
+    </style>
+</head>
+
+<body>
+    <label for="search">Search by contact name: </label>
+    <input type="text" id="search" />
+    <button>Search</button>
+
+    <p></p>
+    <script>
+        (function () {
+
+            // array pop() method 
+            var fruits = ["Apple", "Banana", "Orange", "Strawberry"];
+            var pop = fruits.pop();
+            
+            // 배열의 마지막 요소를 반환한다.
+            console.log(pop);
+
+            // 마지막 요소를 제거하고 기존배열을 update한다.
+            console.log(fruits);
+
+
+            // array loop with array.length, array.pop()
+            function iOS() {
+
+                var iDevices = [
+                    'iPad Simulator',
+                    'iPhone Simulator',
+                    'iPod Simulator',
+                    'iPad',
+                    'iPhone',
+                    'iPod'
+                ];
+
+                //0 in javascript is evaluated to false, so : while(0) is equivalent to while(false).
+                if (!!navigator.platform) { // navigator 객체에 platform property가 있는지.. 요소탐지
+                    while (iDevices.length) { // iDevice의 length가 0인지 아닌지 , 0일경우 false;
+                        if (navigator.platform === iDevices.pop()){ return true; } // return true로 while loop를 빠져 나옴.
+                    }
+                }
+
+                return false;
+            }        
+
+            console.log(navigator);
+        }());
+    </script>
+</body>
+
+</html>
