@@ -19,7 +19,8 @@
     <p></p>
     <script>
         (function () {
-
+            
+            
             // array pop() method 
             var fruits = ["Apple", "Banana", "Orange", "Strawberry"];
             var pop = fruits.pop();
@@ -46,7 +47,7 @@
                 //0 in javascript is evaluated to false, so : while(0) is equivalent to while(false).
                 if (!!navigator.platform) { // navigator 객체에 platform property가 있는지.. 요소탐지
                     while (iDevices.length) { // iDevice의 length가 0인지 아닌지 , 0일경우 false;
-                        if (navigator.platform === iDevices.pop()){ return true; } // return true로 while loop를 빠져 나옴.
+                        if (navigator.platform === iDevices.pop()){ return true; } // return true로 while loop를 빠져 나옴
                     }
                 }
 
