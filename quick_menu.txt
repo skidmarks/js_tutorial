@@ -1,0 +1,41 @@
+$(function(){
+	var $body = $("body");
+	var $quick = $(".quick");
+	var $quick_btn = $quick.find("p > a");
+	var $quick_menu = $quick.find("ul");
+	var $bg_back = $(".bg_back");
+	var quickStats = true;
+
+	$quick_menu.slideUp();
+	$body.removeClass("on");
+
+	$quick_btn.click(function (e) {
+		e.preventDefault();
+		if (quickStats) {
+			$quick.addClass("on");
+			$quick_menu.slideDown();
+			$bg_back.addClass("on");
+			$body.addClass("on");
+			quickStats = false;	
+		
+		}else {
+			$quick.removeClass("on");
+			$quick_menu.slideUp();
+			$bg_back.removeClass("on");
+			$body.removeClass("on");
+			quickStats = true;			
+		}	
+	});	
+
+	$(document).click(function(e) {
+		if($quick.hasClass("on")) { 
+			if(!$quick.has(e.target).length) { 				
+				$quick.removeClass("on");
+				$quick_menu.slideUp();
+				$bg_back.removeClass("on");
+				$body.removeClass("on");
+				quickStats = true;			
+			} ;
+		};
+	}); 
+});

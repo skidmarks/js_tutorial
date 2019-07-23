@@ -8,7 +8,7 @@
         p{padding:20px;border: 2px dotted #000;color:#fff;}
 
         .list-wrapper thead th .chkbox{background-color:#5e5e5e;border-color:#434343;vertical-align:text-bottom;}
-    </style>
+    </style> 
 </head>
 
 <body>
@@ -20,7 +20,7 @@
     <script>
         (function () {
             
-            
+
             // array pop() method 
             var fruits = ["Apple", "Banana", "Orange", "Strawberry"];
             var pop = fruits.pop();
@@ -46,7 +46,7 @@
 
                 //0 in javascript is evaluated to false, so : while(0) is equivalent to while(false).
                 if (!!navigator.platform) { // navigator 객체에 platform property가 있는지.. 요소탐지
-                    while (iDevices.length) { // iDevice의 length가 0인지 아닌지 , 0일경우 false;
+                    while (iDevices.length) { // iDevice의 length가 0인지 아닌지 , 0일경우 false; pop() method 때문에 length값 하나씩 줄어든다.
                         if (navigator.platform === iDevices.pop()){ return true; } // return true로 while loop를 빠져 나옴
                     }
                 }
